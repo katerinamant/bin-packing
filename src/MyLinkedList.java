@@ -1,14 +1,14 @@
 import java.util.NoSuchElementException;
 
-public class myLinkedList<T>{
+public class MyLinkedList<T>{
 	private int size = 0;
 	private LinkedListNode<T> head = null;
 	private LinkedListNode<T> tail = null;
 
-	public myLinkedList() {
+	public MyLinkedList() {
 	}
 
-	public myLinkedList(LinkedListNode<T> head) {
+	public MyLinkedList(LinkedListNode<T> head) {
 		this.head = head;
 
 		// Count size until last node and set tail
@@ -20,7 +20,7 @@ public class myLinkedList<T>{
 		tail = head;
 	}
 
-	public myLinkedList(T val) {
+	public MyLinkedList(T val) {
 		head = new LinkedListNode<T>(val);
 		tail = head;
 		size++;

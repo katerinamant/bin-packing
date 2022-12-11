@@ -2,13 +2,13 @@ import java.lang.Comparable;
 
 public class Disk implements Comparable<Disk> {
 	private static int id = 0;
-	private myLinkedList<Integer> folders;
+	private MyLinkedList<Integer> folders;
 	private final int memory;
 	private int availableMemory;
 
 	public Disk() {
 		id++;
-		folders = new myLinkedList<Integer>();
+		folders = new MyLinkedList<Integer>();
 		memory = 1000000;
 		availableMemory = memory;
 	}
