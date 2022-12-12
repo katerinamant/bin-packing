@@ -100,4 +100,8 @@ public class MaxIntHeap {
 	public boolean isEmpty() {
 		return size == 0;
 	}
+
+	public int getCapacity() {
+		return capacity;
+	}
 }
