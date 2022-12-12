@@ -1,3 +1,5 @@
+package bin_packing;
+
 public class LinkedListNode<T> {
 	private T data;
 	private LinkedListNode<T> next;
