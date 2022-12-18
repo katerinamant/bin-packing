@@ -3,10 +3,18 @@ package bin_packing;
 import java.lang.Comparable;
 
 public class Disk implements Comparable<Disk> {
-	private static int id = 0;
+	private static int count = 0;
+	private int id;
 	private MyLinkedList<Integer> folders;
 	private final int memory;
 	private int availableMemory;
+
+	public Disk(int folder) {
+		id = count++;
+		folders = new MyLinkedList<Integer>(folder);
+		memory = 1000000;
+		availableMemory = memory-folder;
+	}
 
 	public Disk() {
 		id++;
@@ -24,7 +32,7 @@ public class Disk implements Comparable<Disk> {
 		return id;
 	}
 
-	public int getFreeSpace() {
+	public int getAvailableMemory() {
 		return availableMemory;
 	}
 
@@ -34,10 +42,15 @@ public class Disk implements Comparable<Disk> {
 
 	@Override
 	public int compareTo(Disk other) {
-		int A = availableMemory, B = other.getFreeSpace();
+		int A = availableMemory, B = other.getAvailableMemory();
 		if (A == B) {
 			return 0;
 		}
 		return A>B ? 1 : -1;
+	}
+
+	@Override
+	public String toString() {
+		return String.format(" %3d |       %-6d       | %s", id, availableMemory, folders);
 	}
 }

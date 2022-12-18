@@ -61,9 +61,9 @@ class TestMaxIntHeap {
 		Disk d2 = new Disk();
 		d2.insertFolder(300);
 		h.insert(d1);
-		assertTrue(h.peek().getFreeSpace() == 999500);
+		assertTrue(h.peek().getAvailableMemory() == 999500);
 		h.insert(d2);
-		assertTrue(h.peek().getFreeSpace() == 999700);
+		assertTrue(h.peek().getAvailableMemory() == 999700);
 	}
 
 	@Test
@@ -81,8 +81,8 @@ class TestMaxIntHeap {
 		d2.insertFolder(300);
 		h.insert(d1);
 		h.insert(d2);
-		assertTrue(h.deleteMax().getFreeSpace() == 999700);
-		assertTrue(h.deleteMax().getFreeSpace() == 999500);
+		assertTrue(h.deleteMax().getAvailableMemory() == 999700);
+		assertTrue(h.deleteMax().getAvailableMemory() == 999500);
 	}
 
 	@Test

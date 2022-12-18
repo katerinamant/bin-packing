@@ -114,14 +114,12 @@ public class MyLinkedList<T>{
 
 	@Override
 	public String toString() {
-		if (isEmpty()) return "LinkedList: empty";
 		LinkedListNode<T> curr = head;
-		StringBuilder res = new StringBuilder("LinkedList: ");
+		StringBuilder res = new StringBuilder();
 		while (curr != null) {
-			res.append(curr.data().toString() + " -> ");
+			res.append(curr.data().toString() + " ");
 			curr = curr.next();
 		}
-		res.append("NULL");
-		return res.toString();
+		return res.toString().trim();
 	}
 }
