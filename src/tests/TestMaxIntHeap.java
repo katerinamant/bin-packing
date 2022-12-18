@@ -55,21 +55,21 @@ class TestMaxIntHeap {
 
 	@Test
 	public void test_get_max() {
-		System.out.println("getMax");
+		System.out.println("peek");
 		Disk d1 = new Disk();
 		d1.insertFolder(500);
 		Disk d2 = new Disk();
 		d2.insertFolder(300);
 		h.insert(d1);
-		assertTrue(h.getMax().getFreeSpace() == 999500);
+		assertTrue(h.peek().getFreeSpace() == 999500);
 		h.insert(d2);
-		assertTrue(h.getMax().getFreeSpace() == 999700);
+		assertTrue(h.peek().getFreeSpace() == 999700);
 	}
 
 	@Test
-	public void test_getMax_exception() {
-		System.out.println("getMax");
-		assertThrows(NoSuchElementException.class, () -> h.getMax());
+	public void test_peek_exception() {
+		System.out.println("peek");
+		assertThrows(NoSuchElementException.class, () -> h.peek());
 	}
 
 	@Test

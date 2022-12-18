@@ -13,6 +13,14 @@ public class MaxIntHeap {
 		size = 0;
 	}
 
+	private boolean hasParent(int i) { return i/2>0; }
+	private boolean hasLeftChild(int i) { return 2*i<=size; }
+	private boolean hasRightChild(int i) { return 2*i+1<=size; }
+
+	private int getParentIndex(int i) { return i/2; }
+	private int getLeftChildIndex(int i) { return 2*i; }
+	private int getRightChildIndex(int i) { return 2*i+1; }
+
 	public void insert(Disk key) {
 		/*
 		 * Inserts Disk while maintaining decreasing order
@@ -22,11 +30,11 @@ public class MaxIntHeap {
 		heapifyUp();
 	}
 
-	public Disk getMax() throws NoSuchElementException {
+	public Disk peek() throws NoSuchElementException {
 		/*
 		 * Returns Disk with maximum available space
 		 */
-		if (isEmpty()) throw new NoSuchElementException("ERROR: Invoking getMax() on an empty heap.");
+		if (isEmpty()) throw new NoSuchElementException("ERROR: Invoking peek() on an empty heap.");
 		return heap[1];
 	}
 
@@ -52,12 +60,11 @@ public class MaxIntHeap {
 		/*
 		 * Bubbles up the new Disk to its correct position
 		 */
-		int i = size, p = i/2;
-		while (i/2 > 0 && heap[i].compareTo(heap[p]) > 0) {
-			//while (parent exists) && (availableMemory of Disk[i] > availableMemory of Disk[p])
+		int i = size, p = getParentIndex(i);
+		while (hasParent(i) && heap[i].compareTo(heap[p]) > 0) {
 			swap(i, p);
 			i = p;
-			p = i/2;
+			p = getParentIndex(i);
 		}
 	}
 
@@ -65,21 +72,19 @@ public class MaxIntHeap {
 		/*
 		 *Restores order when the maximum element is removed
 		 */
-		int i = 1, l = 2*i, r = 2*i + 1;
-		while(l <= size) {	//while left child exists
+		int i = 1, l = getLeftChildIndex(i), r = getLeftChildIndex(i);
+		while(hasLeftChild(i)) {
 			int m = l;
-			if (r <= size && heap[r].compareTo(heap[l]) > 0) {
-				//while (right child exists) && (availableMemory of Disk[r] > availableMemory of Disk[l])
+			if (hasRightChild(i) && heap[r].compareTo(heap[l]) > 0) {
 				m = r;
 			}
 			if (heap[i].compareTo(heap[m]) > 0) {
-				//if availableMemory of Disk[i] > maximum(availableMemory of left child, availableMemory of right child)
 				break;
 			}
 			swap(i, m);
 			i = m;
-			l = 2*i;
-			r = l+1;
+			l = getLeftChildIndex(i);
+			r = getRightChildIndex(i);
 		}
 	}
 

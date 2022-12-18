@@ -13,11 +13,11 @@ public class MaxPQ {
 		heap.insert(key);
 	}
 
-	public Disk max() throws NoSuchElementException{
+	public Disk peek() throws NoSuchElementException{
 		/*
 		 * Returns Disk with maximum available space
 		 */
-		return heap.getMax();
+		return heap.peek();
 	}
 
 	public Disk getMax() throws NoSuchElementException{
