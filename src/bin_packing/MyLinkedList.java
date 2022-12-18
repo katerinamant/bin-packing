@@ -1,3 +1,5 @@
+package bin_packing;
+
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<T>{

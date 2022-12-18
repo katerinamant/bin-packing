@@ -1,3 +1,5 @@
+package bin_packing;
+
 import java.lang.Comparable;
 
 public class Disk implements Comparable<Disk> {
