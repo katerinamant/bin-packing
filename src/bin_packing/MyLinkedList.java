@@ -108,6 +108,10 @@ public class MyLinkedList<T>{
 		return size;
 	}
 
+	public void overrideSize(int size) {
+		this.size = size;
+	}
+
 	public boolean isEmpty() {
 		return size() == 0;
 	}
