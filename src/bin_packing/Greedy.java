@@ -1,11 +1,7 @@
 package bin_packing;
 
 public class Greedy {
-	public static void main(String[] args) throws Exception {
-		ReadFileApp reader = new ReadFileApp();
-		reader.readFile(args[0]);
-		MyLinkedList<Integer> folders = reader.getFolders();
-		int foldersToStore = folders.size();
+	public static void solve(MyLinkedList<Integer> folders, int totalFolderSize, boolean sort) {
 		MaxPQ prioq = new MaxPQ(folders.size());
 
 		while (!folders.isEmpty()) {
@@ -18,10 +14,10 @@ public class Greedy {
 		}
 
 		StringBuilder res = new StringBuilder();
-		res.append(String.format("Sum of all folders = %.6f TB\n", reader.getTotalFolderSize()/1000000f));
+		res.append(String.format("Sum of all folders = %.6f TB\n", totalFolderSize/1000000f));
 		res.append("Total number of disks used = " + prioq.size() + "\n\n");
 
-		if (foldersToStore <= 100) {
+		if (folders.size() <= 100) {
 			res.append(" [#] | [AVAILABLE MEMORY] | [FOLDERS]\n");
 			res.append("-----|--------------------|----------\n");
 			while (!prioq.isEmpty()) {
@@ -30,6 +26,13 @@ public class Greedy {
 		}
 
 		System.out.println(res);
+	}
+	public static void main(String[] args) throws Exception {
+		ReadFileApp reader = new ReadFileApp();
+		reader.readFile(args[0]);
+		System.out.println("Calling with: " + reader.getFolders());
+		//solve(reader.getFolders(), reader.getTotalFolderSize(), true);
+		Sort.sort(reader.getFolders());
 
 	}
 
