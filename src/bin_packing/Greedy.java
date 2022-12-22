@@ -32,7 +32,8 @@ public class Greedy {
 		reader.readFile(args[0]);
 		System.out.println("Calling with: " + reader.getFolders());
 		//solve(reader.getFolders(), reader.getTotalFolderSize(), true);
-		Sort.sort(reader.getFolders());
+		MyLinkedList<Integer> sortedFolders = Sort.sort(reader.getFolders());
+		System.out.println(sortedFolders);
 
 	}
 
