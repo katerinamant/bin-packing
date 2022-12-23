@@ -30,11 +30,7 @@ public class Greedy {
 	public static void main(String[] args) throws Exception {
 		ReadFileApp reader = new ReadFileApp();
 		reader.readFile(args[0]);
-		System.out.println("Calling with: " + reader.getFolders());
-		//solve(reader.getFolders(), reader.getTotalFolderSize(), true);
-		MyLinkedList<Integer> sortedFolders = Sort.sort(reader.getFolders());
-		System.out.println(sortedFolders);
-
+		solve(reader.getFolders(), reader.getTotalFolderSize(), true);
 	}
 
 }

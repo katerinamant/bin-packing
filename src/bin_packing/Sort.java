@@ -9,12 +9,12 @@ public class Sort {
 
 		// Split list in half
 		int middle = ll.size()/2 - 1;
-		LinkedListNode<Integer> current = ll.headNode();
+		LinkedListNode<Integer> curr = ll.headNode();
 		for(int i=0; i<middle; i++) {
-			current = current.next();
+			curr = curr.next();
 		}
-		LinkedListNode<Integer> middleNode = current.next();
-		current.setNext(null);
+		LinkedListNode<Integer> middleNode = curr.next();
+		curr.setNext(null);
 		MyLinkedList<Integer> left = new MyLinkedList<Integer>(ll.headNode());
 		MyLinkedList<Integer> right = new MyLinkedList<Integer>(middleNode);
 
