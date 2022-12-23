@@ -2,7 +2,7 @@ package bin_packing;
 
 public class Sort {
 	public static MyLinkedList<Integer> sort(MyLinkedList<Integer> ll) {
-		// Implementation of MergeSort
+		// Implementation of decreasing MergeSort
 		if (ll.isEmpty() | ll.size() == 1) {
 			return ll;
 		}
@@ -30,7 +30,7 @@ public class Sort {
 		MyLinkedList<Integer> c = new MyLinkedList<Integer>();
 
 		while (!a.isEmpty() && !b.isEmpty()) {
-			int val = (a.head() > b.head()) ? b.popFront() : a.popFront();
+			int val = (a.head() < b.head()) ? b.popFront() : a.popFront();
 			c.pushBack(val);
 		}
 

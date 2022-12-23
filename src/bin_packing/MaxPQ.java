@@ -27,6 +27,10 @@ public class MaxPQ {
 		return heap.deleteMax();
 	}
 
+	public void update() {
+		heap.heapifyDown();
+	}
+
 	public int size() {
 		return heap.getSize();
 	}

@@ -4,12 +4,15 @@ public class Greedy {
 	public static void solve(MyLinkedList<Integer> folders, int totalFolderSize, boolean sort) {
 		MaxPQ prioq = new MaxPQ(folders.size());
 
+		if(sort) folders = Sort.sort(folders);
+
 		while (!folders.isEmpty()) {
 			int f = folders.popFront();
 			if (prioq.isEmpty() || f > prioq.peek().getAvailableMemory()) {
 				prioq.insert(new Disk(f));
 			} else if (f <= prioq.peek().getAvailableMemory()) {
 				prioq.peek().insertFolder(f);
+				prioq.update();
 			}
 		}
 
@@ -27,6 +30,7 @@ public class Greedy {
 
 		System.out.println(res);
 	}
+
 	public static void main(String[] args) throws Exception {
 		ReadFileApp reader = new ReadFileApp();
 		reader.readFile(args[0]);
