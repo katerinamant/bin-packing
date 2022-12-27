@@ -6,9 +6,9 @@ public class ReadFileApp {
 	private MyLinkedList<Integer> folders;
 	private int totalSize = 0;
 
-	public void readFile(String file) throws Exception {
+	public void readFile(String file, boolean printLogs) throws Exception {
 		BufferedReader reader = null;
-		System.out.printf("[Reading from file: %s]\n", file);
+		if (printLogs) System.out.printf("[Reading from file: %s]\n", file);
 		reader = new BufferedReader(new FileReader(file));
 		String line = reader.readLine();
 		int linenum = 1;
@@ -49,11 +49,20 @@ public class ReadFileApp {
 			linenum++;
 		}
 		reader.close();
-		System.out.printf("[Succesfully read from file: %s]\n\n", file);
+		if (printLogs) System.out.printf("[Succesfully read from file: %s]\n\n", file);
 	}
 
 	public MyLinkedList<Integer> getFolders() {
-		return folders;
+		/*
+		 * Returns copy of folders linked list
+		 */
+		MyLinkedList<Integer> res = new MyLinkedList<Integer>();
+		LinkedListNode<Integer> curr = folders.headNode();
+		while (curr != null) {
+			res.pushBack(curr.data());
+			curr = curr.next();
+		}
+		return res;
 	}
 
 	public int getTotalFolderSize() {
