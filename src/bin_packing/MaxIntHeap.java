@@ -72,7 +72,7 @@ public class MaxIntHeap {
 		/*
 		 *Restores order when the maximum element is removed
 		 */
-		int i = 1, l = getLeftChildIndex(i), r = getLeftChildIndex(i);
+		int i = 1, l = getLeftChildIndex(i), r = getRightChildIndex(i);
 		while(hasLeftChild(i)) {
 			int m = l;
 			if (hasRightChild(i) && heap[r].compareTo(heap[l]) > 0) {
