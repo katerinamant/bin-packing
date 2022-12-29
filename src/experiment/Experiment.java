@@ -14,7 +14,7 @@ public class Experiment {
 		res.append("----------|-----------------|--------------\n");
 
 		for (int i=1; i<=10; i++) {
-			reader.readFile("exp_input/input_"+N+"_"+i+".txt", false);
+			reader.readFile("data/input_"+N+"_"+i+".txt", false);
 
 			// Sort folders first
 			int sorted = Greedy.solve(reader.getFolders(), reader.getTotalFolderSize(), true, false);
