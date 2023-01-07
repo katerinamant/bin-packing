@@ -1,0 +1,17 @@
+In order to run the project, follow these steps.
+
+To run the greedy aglorithm that solves the bin packing problem without sorting the disks first, run the commands:
+
+1. 'cd src'
+2. 'javac bin_packing/Greedy.java'
+3. 'java bin_packing.Greedy ../input.txt'
+
+To run the experiment comparing the above algorithm with one that firsts sorts the disks in a decreasing order, run the commands:
+
+1. 'cd src'
+2. 'javac experiment/Experiment.java'
+3. 'java experiment.Experiment 3 100 200 500' (where the first number is the
+    number of test cases and each number after it is the number of disks
+    generated for that test case)
+
+The project has been tested and works both on UNIX-based and Windows systems.

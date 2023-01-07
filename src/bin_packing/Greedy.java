@@ -4,9 +4,14 @@ public class Greedy {
 	public static int solve(MyLinkedList<Integer> folders, int totalFolderSize, boolean sort, boolean print) {
 		MaxPQ prioq = new MaxPQ(folders.size());
 
+		// Sort folders before greedily assigning them to disks
+		// Only sort if we are running the greedy-decreasing variation
 		if(sort) folders = Sort.sort(folders);
 
 		while (!folders.isEmpty()) {
+			// Deal with each folder one by one
+			// Store the folder at the disk used with the most available space
+			// If that is not possible, create a new disk and store the folder there
 			int f = folders.popFront();
 			if (prioq.isEmpty() || f > prioq.peek().getAvailableMemory()) {
 				prioq.insert(new Disk(f));
@@ -17,6 +22,8 @@ public class Greedy {
 		}
 
 		if (print) {
+			// Print results of algorithm run
+			// Happens only when calling this function from src.bin_packing.Greedy.main()
 			StringBuilder res = new StringBuilder();
 			res.append(String.format("Sum of all folders = %.6f TB\n", totalFolderSize/1000000f));
 			res.append("Total number of disks used = " + prioq.size() + "\n\n");

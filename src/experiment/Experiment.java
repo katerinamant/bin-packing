@@ -6,6 +6,7 @@ import bin_packing.*;
 public class Experiment {
 	public static void compareAlgorithms(int N) throws Exception {
 		System.out.println("Testing for N = " + N + "\n");
+		// Keep track of the disks used in each variation
 		int sortedSum = 0, unsortedSum = 0;
 		ReadFileApp reader = new ReadFileApp();
 
@@ -14,13 +15,14 @@ public class Experiment {
 		res.append("----------|-----------------|--------------\n");
 
 		for (int i=1; i<=10; i++) {
+			// Run the algorithm based on the appropriate random generated input file
 			reader.readFile("data/input_"+N+"_"+i+".txt", false);
 
 			// Sort folders first
 			int sorted = Greedy.solve(reader.getFolders(), reader.getTotalFolderSize(), true, false);
 			sortedSum += sorted;
 
-			// Unsorted folders list
+			// Non-sort variation
 			int unsorted = Greedy.solve(reader.getFolders(), reader.getTotalFolderSize(), false, false);
 			unsortedSum += unsorted;
 
