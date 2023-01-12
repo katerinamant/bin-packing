@@ -2,25 +2,25 @@ package bin_packing;
 
 import java.util.NoSuchElementException;
 
-public class MaxPQ {
-	private MaxIntHeap heap;
+public class MaxPQ<T extends Comparable<T>> {
+	private MaxIntHeap<T> heap;
 
 	public MaxPQ(int capacity) {
-		heap = new MaxIntHeap(capacity);
+		heap = new MaxIntHeap<T>(capacity);
 	}
 
-	public void insert(Disk key) {
+	public void insert(T key) {
 		heap.insert(key);
 	}
 
-	public Disk peek() throws NoSuchElementException{
+	public T peek() throws NoSuchElementException{
 		/*
 		 * Returns Disk with maximum available space
 		 */
 		return heap.peek();
 	}
 
-	public Disk getMax() throws NoSuchElementException{
+	public T getMax() throws NoSuchElementException{
 		/*
 		 * Returns and removes Disk with maximum available space from heap
 		 */

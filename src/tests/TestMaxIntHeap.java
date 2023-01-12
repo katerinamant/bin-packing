@@ -6,7 +6,7 @@ import java.util.*;
 import bin_packing.*;
 
 class TestMaxIntHeap {
-	private MaxIntHeap h = new MaxIntHeap(10);
+	private MaxIntHeap<Disk> h = new MaxIntHeap<Disk>(10);
 
 	@BeforeAll
 	public static void setUp() {
@@ -21,7 +21,7 @@ class TestMaxIntHeap {
 	@Test
 	public void test_constructor() {
 		System.out.println("constructor");
-		MaxIntHeap temp = new MaxIntHeap(2);
+		MaxIntHeap<Disk> temp = new MaxIntHeap<Disk>(2);
 		assertTrue(temp.getCapacity() == 2);
 		temp.insert(new Disk());
 		temp.insert(new Disk());

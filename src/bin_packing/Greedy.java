@@ -2,7 +2,7 @@ package bin_packing;
 
 public class Greedy {
 	public static int solve(MyLinkedList<Integer> folders, int totalFolderSize, boolean sort, boolean print) {
-		MaxPQ prioq = new MaxPQ(folders.size());
+		MaxPQ<Disk> prioq = new MaxPQ<Disk>(folders.size());
 
 		// Sort folders before greedily assigning them to disks
 		// Only sort if we are running the greedy-decreasing variation
