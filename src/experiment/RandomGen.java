@@ -5,10 +5,12 @@ import java.util.Random;
 
 public class RandomGen {
 	public void genFiles(int N) throws IOException {
-		new File("./exp_input/").mkdirs();
+		// Create a directory data at the current level (if one does not exist)
+		new File("./data/").mkdirs();
 		System.out.printf("[Generating input for N = %d]\n", N);
 		for (int i=1; i<=10; i++) {
-			String filename = String.format("exp_input/input_%d_%d.txt", N, i);
+			// Create 10 randomly generated input files
+			String filename = String.format("data/input_%d_%d.txt", N, i);
 			createFile(filename, N);
 		}
 	}
