@@ -4,6 +4,10 @@
 
 ## Screenshots
 
+![Screenshot_20230205_121842](https://user-images.githubusercontent.com/97695022/216791866-9e510307-ca0f-4f6a-9a20-06673a63cf28.png)
+
+![Screenshot_20230205_121953](https://user-images.githubusercontent.com/97695022/216791872-84daacb7-f471-49a0-ab5d-9e917af70c2e.png)
+
 ## Description
 
 First, we created our own interface of a Linked List using generics, which is implemented in the `MyLinkedList` class.
